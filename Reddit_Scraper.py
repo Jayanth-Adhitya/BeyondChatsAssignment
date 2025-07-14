@@ -25,6 +25,7 @@ def get_user_profile(url):
         print(f"Error fetching URL: {e}")
         sys.exit(1)
 
+
 def get_posts_and_comments(soup):
     """
     Extracts posts and comments from a parsed Reddit user profile page.
@@ -50,7 +51,7 @@ def get_posts_and_comments(soup):
                 selftext_div = item.select_one('.usertext-body .md')
                 if selftext_div:
                     content += '\n' + selftext_div.text.strip()
-        else: # comment
+        else:  # comment
             content_div = item.select_one('.md')
             content = content_div.text.strip() if content_div else ''
             link_tag = item.select_one('a.bylink')
@@ -61,6 +62,7 @@ def get_posts_and_comments(soup):
             if len(items) >= 100:
                 break
     return items
+
 
 def main():
     """
@@ -76,14 +78,14 @@ def main():
     
     if soup:
         items = get_posts_and_comments(soup)
-        
-        if not os.path.exists('personas'):
-            os.makedirs('personas')
-            
-        output_path = os.path.join('personas', f'{username}_persona.json')
+
+        if not os.path.exists('scraped_data'):
+            os.makedirs('scraped_data')
+
+        output_path = os.path.join('scraped_data', f'{username}_scraped_data.json')
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(items, f, ensure_ascii=False, indent=4)
-            
+
         print(f"Found {len(items)} items and saved them to {output_path}")
 
 if __name__ == '__main__':

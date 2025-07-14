@@ -43,6 +43,7 @@ def generate_persona(api_key, username, scraped_data):
     except Exception as e:
         return f"Error generating persona: {e}"
 
+
 def main():
     """
     Main function to run the persona generator.
@@ -67,18 +68,16 @@ def main():
     
     if soup:
         items = get_posts_and_comments(soup)
-        
+
         if not os.path.exists('scraped_data'):
             os.makedirs('scraped_data')
-            
+
         # Save scraped data for caching/review
         scraped_data_path = os.path.join('scraped_data', f'{username}_scraped_data.json')
         with open(scraped_data_path, 'w', encoding='utf-8') as f:
             json.dump(items, f, ensure_ascii=False, indent=4)
-
         if not os.path.exists('personas'):
             os.makedirs('personas')
-
         print(f"Found {len(items)} items. Generating persona...")
         persona = generate_persona(api_key, username, items)
 
