@@ -1,4 +1,4 @@
-# Reddit User Persona Generator
+# Reddit User Persona Generator - BeyondChats Assignment
 
 ## Overview
 
@@ -15,8 +15,8 @@ This project is a Python script that generates a detailed user persona based on 
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/reddit-persona-generator.git
-    cd reddit-persona-generator
+    git clone https://github.com/Jayanth-Adhitya/BeyondChatsAssignment.git
+    cd BeyondChatsAssignment
     ```
 
 2.  **Install dependencies:**
@@ -47,10 +47,3 @@ The script will generate two files:
 2.  **User Persona:** A text file containing the generated user persona, saved in the `personas` folder.
     -   `personas/some_username_persona.txt`
 
-## Contributing
-
-Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
